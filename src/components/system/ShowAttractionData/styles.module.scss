@@ -1,0 +1,7 @@
+.spanLinks {
+    @apply flex flex-row flex-wrap p-2 border border-white rounded-md justify-center;
+
+    > a {
+        @apply m-1 p-3 bg-cyan-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-white;
+    }
+}
