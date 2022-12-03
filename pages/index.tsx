@@ -127,7 +127,7 @@ export default function Home(): JSX.Element {
                                             videos={searchResults.videos}
                                         />
                                     ) : (
-                                        <p className='text-white'>
+                                        <p className='text-white italic'>
                                             Records not found
                                         </p>
                                     )}
@@ -140,8 +140,8 @@ export default function Home(): JSX.Element {
                                             data={searchResults.attractionData}
                                         />
                                     ) : (
-                                        <p className='text-white'>
-                                            Records not found
+                                        <p className='text-white italic'>
+                                            Data not found
                                         </p>
                                     )}
                                 </div>
