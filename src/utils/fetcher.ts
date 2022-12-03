@@ -3,31 +3,25 @@ import FetchError from '@/utils/FetchError'
 import env from '@/env'
 
 interface IFetcherArgs {
-    method: string
-    url: string
-    data?: object
-    auth?: string
-    nextApi?: boolean
+    endpoint: 'youtube' | 'ticketmaster'
+    queryParams: Record<string, string>
 }
 
 const fetcher = async (args: IFetcherArgs): Promise<any> => {
-    const { method, url, data, auth, nextApi } = args
-    const headers: HeadersInit = {
-        'Content-Type': 'application/json',
-    }
-    if (auth) {
-        headers['Authorization'] = 'Bearer ' + auth
-    }
+    const { endpoint, queryParams } = args
     let pathUrl: string
-    if (nextApi) {
-        pathUrl = `${url}`
+    if (endpoint === 'youtube') {
+        pathUrl = env.YOUTUBE_API
+        queryParams['key'] = env.YOUTUBE_KEY
     } else {
-        pathUrl = `${env.API}${url}`
+        pathUrl = env.TICKETMASTER_API
+        queryParams['apikey'] = env.TICKETMASTER_KEY
     }
+
+    pathUrl += `?${new URLSearchParams(queryParams).toString()}`
+
     const response = await fetch(pathUrl, {
-        method,
-        headers,
-        body: data ? JSON.stringify(data) : undefined,
+        method: 'GET',
     })
 
     const responseData = await response.json()
