@@ -26,7 +26,7 @@ export default function CardVideo({
                         style={{ objectFit: 'cover' }}
                     />
                 </div>
-                <div className='sm:col-span-2 flex items-center relative bg-cyan-50'>
+                <div className='sm:col-span-2 flex items-center relative bg-cyan-50 overflow-hidden'>
                     <div className='flex flex-col justify-center space-y-2 px-6'>
                         <p className={styles.channelTitle}>
                             {video.snippet.channelTitle}
