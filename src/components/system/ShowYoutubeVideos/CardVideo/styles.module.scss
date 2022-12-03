@@ -1,0 +1,22 @@
+@mixin text-overflow-ellipsis($lines) {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.description {
+    @apply text-gray-800 text-sm;
+    @include text-overflow-ellipsis(3);
+}
+
+.title {
+    @apply text-cyan-700 font-bold text-xl h-[3.5rem];
+    @include text-overflow-ellipsis(2);
+}
+
+.channelTitle {
+    @apply text-gray-800 truncate text-sm font-semibold;
+}
