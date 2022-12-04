@@ -26,7 +26,7 @@ export default function ShowAttractionData({
             <p>
                 Name: <span className='font-bold'>{data.name}</span>
             </p>
-            <div>
+            <div data-testid='carousel-images'>
                 <Carousel
                     autoPlay={true}
                     dynamicHeight={true}
@@ -47,7 +47,10 @@ export default function ShowAttractionData({
                 </Carousel>
             </div>
             {data.externalLinks && (
-                <span className={styles.spanLinks}>
+                <span
+                    className={styles.spanLinks}
+                    data-testid='span-links'
+                >
                     {data.externalLinks.homepage &&
                         data.externalLinks.homepage[0].url && (
                             <a
