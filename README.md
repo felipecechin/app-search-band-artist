@@ -21,4 +21,4 @@ To run the application, follow these steps:
 - `sweetalert2`: used to show alert in case of error;
 - `@headlessui/react`: used to show modal.
 
-In the development environment, `prettier` and `eslint` were used for formatting and code analysis.
+In the development environment, `prettier` and `eslint` were used for formatting and code analysis. Unit tests using `jest` were implemented.
