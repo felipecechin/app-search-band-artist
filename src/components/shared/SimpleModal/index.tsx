@@ -56,6 +56,7 @@ export default function SimpleModal({
                                 <div className='bg-gray-700 px-4 sm:px-8 py-14'>
                                     <HiOutlineX
                                         className='absolute top-4 right-4 cursor-pointer h-6 w-6 text-white'
+                                        data-testid='close-modal'
                                         onClick={onClose}
                                     />
                                     {title && (
