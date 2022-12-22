@@ -1,4 +1,4 @@
-import { reactSwal, sweetAlertOptions } from '@/utils/sweetAlert'
+import { closeSwal, showSwalError, showSwalLoading } from '@/utils/sweetAlert'
 import { useCallback, useState } from 'react'
 
 import { FaSearch } from 'react-icons/fa'
@@ -41,12 +41,7 @@ export default function Home(): JSX.Element {
             const search = form.search.value
             if (!search) return
 
-            reactSwal.fire({
-                title: 'Por favor, aguarde...',
-                allowEscapeKey: false,
-                allowOutsideClick: false,
-            })
-            reactSwal.showLoading(null)
+            showSwalLoading()
             try {
                 const [youtubeResponse, ticketMasterResponse]: [
                     IYoutubeResponse,
@@ -81,14 +76,9 @@ export default function Home(): JSX.Element {
                     attractionData,
                 })
 
-                reactSwal.close()
+                closeSwal()
             } catch (err) {
-                reactSwal.fire({
-                    title: 'Oops!',
-                    icon: 'error',
-                    text: 'Ocorreu algum erro ao buscar os dados',
-                    confirmButtonColor: sweetAlertOptions.confirmButtonColor,
-                })
+                showSwalError('Ocorreu algum erro ao buscar os dados')
             }
         },
         []
